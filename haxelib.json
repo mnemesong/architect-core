@@ -1,0 +1,16 @@
+{
+    "name": "architect-core",
+    "license": "MIT",
+    "tags": [
+        "architect"
+    ],
+    "description": "Core classes for architect framework",
+    "contributors": [
+        "Anatoly-Starodubstev"
+    ],
+    "releasenote": "See https://github.com/mnemesong/architect-core/blob/main/README.md",
+    "version": "0.0.1",
+    "url": "https://github.com/mnemesong/architect-core",
+    "classPath": "hx/src",
+    "dependencies": {}
+}
