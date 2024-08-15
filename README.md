@@ -74,6 +74,18 @@ interface IStepManager {
 }
 ```
 
+### architect.core.Scalar
+```haxe
+package architect.core;
+
+enum Scalar {
+    Int(v: Int);
+    String(v: String);
+    Float(v: Float);
+    Bool(v: Bool);
+}
+```
+
 ### architect.core.SendMsg
 ```haxe
 package architect.core;
