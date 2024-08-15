@@ -1,0 +1,4 @@
+--class-path hx/src
+--class-path hx/test
+--main ArchitectCoreTest
+--interp

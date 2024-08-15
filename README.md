@@ -12,6 +12,9 @@ Core classes and interfaces for architect framework.
 	- IStep
 	- IStepManager
 	- SendMsg
+    - Scalar
+    - SyncStep
+    - BasicSyncStep
 - data
 	- IDataProvide
 	- IMetaModel
@@ -94,6 +97,52 @@ package architect.core;
     Send some message
 **/
 typedef SendMsg<Req, Resp> = (req: Req) -> IStep<Resp>
+```
+
+### architect.core.SyncStep
+```haxe
+package architect.core;
+
+import haxe.Exception;
+import architect.core.IStep;
+
+class SyncStep<T> implements IStep<T> {
+    
+    private var _v: T;
+    private var _catch: Null<Exception -> T> = null;
+
+    public function new(v: T,  _catch: Null<Exception -> T> = null) {
+        this._v = v;
+        this._catch = _catch;
+    }
+
+    public function flatMap<V2>(f:T -> IStep<V2>):IStep<V2> {...}
+
+    public function map<V2>(f:T -> V2):IStep<V2> {...}
+
+    public function catchError(e:Exception -> T):IStep<T> {...}
+
+    public function getVal(): T {...}
+}
+```
+
+### architect.core.BasicSyncStepManager
+```haxe
+package architect.core;
+
+import haxe.Exception;
+using Lambda;
+
+class BasicSyncStepManager implements IStepManager {
+    
+    public function new() {...}
+
+    public function lift<V>(v:V):IStep<V> {...}
+
+    public function all<V>(all:Array<IStep<V>>):IStep<Array<V>> {...}
+
+    public function any<V>(all:Array<IStep<V>>):IStep<V> {...}
+}
 ```
 
 ### architect.data.IDataProvider
