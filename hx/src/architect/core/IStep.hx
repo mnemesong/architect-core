@@ -11,5 +11,5 @@ interface IStep<V>  {
 
 	public function map<V2>( f : V -> V2 ) : IStep<V2>;
 
-    public function onException(e: Exception -> Void): IStep<Dynamic>;
+    public function catchError(e: Exception -> V): IStep<V>;
 }
